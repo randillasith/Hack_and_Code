@@ -1,5 +1,34 @@
 import json  # to manipulate json files
 import os  # to control the terminal window (if needed)
+import xlsxwriter  # to write into Excel spreadsheet
+
+
+def login():
+    while True:
+        name: str = input("Enter Your Name: ")
+        if name != "":
+            if not os.path.exists(f"./cart/{name}.txt"):
+                user = open(f"./cart/{name}.txt", "w")
+                user.close()
+                break
+            else:
+                break
+        else:
+            continue
+    return name
+
+
+def addItemsToCart(part_name: str, price: float, currently_loggedIn: str):
+    if currently_loggedIn != "":
+        cart_file = open(f"./cart/{currently_loggedIn}.txt", "+a")
+        item_format: dict = {}
+        item_format[part_name] = price
+        cart_file.write(f"{item_format}\n")
+        cart_file.close()
+        print("Item Added to cart!")
+    else:
+        print("You have to login first...")
+        login()
 
 
 def getAllData(path: str):
@@ -48,6 +77,7 @@ def getCpuData(index: int, cpu_number: dict):
           TDP - {data['tdp']}W
           Price - {data['price']['amount']}{data['price']['currency']}"""
     )
+    return [data["brand"] + " " + data["model"], data["price"]["amount"]]
 
 
 def ramList(ram_number: dict):
@@ -85,6 +115,7 @@ def getRamData(index: int, ram_number: dict):
           Module Size - {round((data['module_size']) / 1024 ** 3, 2)}GB
           Price - {data['price']['amount']}{data['price']['currency']}"""
     )
+    return [data["brand"] + " " + data["model"], data["price"]["amount"]]
 
 
 def hddList(hdd_number: dict):
@@ -122,6 +153,7 @@ def getHddData(index: int, hdd_number: dict):
           Capacity - {capacity}
           Price - {data['price']['amount']}{data['price']['currency']}"""
     )
+    return [data["brand"] + " " + data["model"], data["price"]["amount"]]
 
 
 def mbList(mb_number: dict):
@@ -159,6 +191,7 @@ def getMbData(index: int, mb_number: dict):
           Maximum RAM - {max_ram}
           Price - {data['price']['amount']}{data['price']['currency']}"""
     )
+    return [data["brand"] + " " + data["model"], data["price"]["amount"]]
 
 
 def psuList(psu_number: dict):
@@ -189,6 +222,7 @@ def getPsuData(index: int, psu_number: dict):
           Colour - {data['color']}
           Price - {data['price']['amount']}{data['price']['currency']}"""
     )
+    return [data["brand"] + " " + data["model"], data["price"]["amount"]]
 
 
 def casingList(case_number: dict):
@@ -218,6 +252,7 @@ def getCasingData(index: int, case_number: dict):
           Internal Bays - {data['internal_bays']}
           Price - {data['price']['amount']}{data['price']['currency']}"""
     )
+    return [data["brand"] + " " + data["model"], data["price"]["amount"]]
 
 
 def scrnList(scren_number: dict):
@@ -247,207 +282,12 @@ def getScrnData(index: int, scren_number: dict):
           Aspect Ratio - {data['aspect_ratio']}
           Price - {data['price']['amount']}{data['price']['currency']}"""
     )
+    return [data["brand"] + " " + data["model"], data["price"]["amount"]]
 
 
-def home(
-    cpu_number: dict,
-    ram_number: dict,
-    hdd_number: dict,
-    mb_number: dict,
-    psu_number: dict,
-    case_number: dict,
-    scren_number: dict,
-):
-    userChoice: int = int(
-        input(
-            "\n[1] - PC Accessories\n[2] - Quatation\n[3] - Cart\n[4] - Exit\n What do you want? >>> "
-        )
-    )
-
-    if userChoice == 1:
-        pcAccessories(
-            cpu_number,
-            ram_number,
-            hdd_number,
-            mb_number,
-            psu_number,
-            case_number,
-            scren_number,
-        )
-    elif userChoice == 2:
-        pass
-    elif userChoice == 3:
-        pass
-    elif userChoice == 4:
-        exit(1)
+def deleteItems():
+    pass
 
 
-def pcAccessories(
-    cpu_number: dict,
-    ram_number: dict,
-    hdd_number: dict,
-    mb_number: dict,
-    psu_number: dict,
-    case_number: dict,
-    scren_number: dict,
-):
-    while True:
-        print(
-            """We have,
-            1 - CPU
-            2 - RAM
-            3 - HDD/SSD
-            4 - Motherboard
-            5 - Power Supply Unit
-            6 - Casing
-            7 - Monitor
-            8 - Go Back"""
-        )
-
-        user: int = int(input("What do you want? >>> "))
-
-        if user == 1:
-            while True:
-                print("We have, \n")
-                cpuList(cpu_number)
-                print("\n [n] - More Details\n [2] - Back")
-                choice: int = int(input(">>> "))
-                if choice <= len(cpu_number):
-                    getCpuData(choice, cpu_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
-                        break
-                    elif choice2 == 2:
-                        pass
-                    else:
-                        pass
-                elif choice == 2:
-                    break
-        elif user == 2:
-            while True:
-                print("We have, \n")
-                ramList(ram_number)
-                print("\n [n] - More Details\n [2] - Back")
-                choice: int = int(input(">>> "))
-                if choice <= len(ram_number):
-                    getRamData(choice, ram_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
-                        break
-                    elif choice2 == 2:
-                        pass
-                    else:
-                        pass
-                elif choice == 2:
-                    break
-        elif user == 3:
-            while True:
-                print("We have, \n")
-                hddList(hdd_number)
-                print("\n [n] - More Details\n [2] - Back")
-                choice: int = int(input(">>> "))
-                if choice <= len(hdd_number):
-                    getHddData(choice, hdd_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
-                        break
-                    elif choice2 == 2:
-                        pass
-                    else:
-                        pass
-                elif choice == 2:
-                    break
-        elif user == 4:
-            while True:
-                print("We have, \n")
-                mbList(mb_number)
-                print("\n [n] - More Details\n [2] - Back")
-                choice: int = int(input(">>> "))
-                if choice <= len(mb_number):
-                    getMbData(choice, mb_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
-                        break
-                    elif choice2 == 2:
-                        pass
-                    else:
-                        pass
-                elif choice == 2:
-                    break
-        elif user == 5:
-            while True:
-                print("We have, \n")
-                psuList(psu_number)
-                print("\n [n] - More Details\n [2] - Back")
-                choice: int = int(input(">>> "))
-                if choice <= len(psu_number):
-                    getPsuData(choice, psu_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
-                        break
-                    elif choice2 == 2:
-                        pass
-                    else:
-                        pass
-                elif choice == 2:
-                    break
-        elif user == 6:
-            while True:
-                print("We have, \n")
-                casingList(case_number)
-                print("\n [n] - More Details\n [2] - Back")
-                choice: int = int(input(">>> "))
-                if choice <= len(case_number):
-                    getCasingData(choice, case_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
-                        break
-                    elif choice2 == 2:
-                        pass
-                    else:
-                        pass
-                elif choice == 2:
-                    break
-        elif user == 7:
-            while True:
-                print("We have, \n")
-                scrnList(scren_number)
-                print("\n [n] - More Details\n [2] - Back")
-                choice: int = int(input(">>> "))
-                if choice <= len(scren_number):
-                    getScrnData(choice, scren_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
-                        break
-                    elif choice2 == 2:
-                        pass
-                    else:
-                        pass
-                elif choice == 2:
-                    break
-        elif user == 8:
-            home(
-                cpu_number,
-                ram_number,
-                hdd_number,
-                mb_number,
-                psu_number,
-                case_number,
-                scren_number,
-            )
-        else:
-            exit(1)
+def writeToExcel():
+    pass
