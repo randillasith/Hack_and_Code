@@ -1,9 +1,20 @@
+# Team Name: Lycoris Cafe
+# Members: Dasun Nethsara
+#          Naveen Balasooriya
+#          Lasith Randil
+
 # imports
+import platform
 import ast
 import os
-from colorama import Fore
 
-init(convert=True)
+# solution for colorama init function error in different python versions
+try:
+    from colorama import Fore, init
+
+    init(convert=True)
+except NameError:
+    from colorama import Fore
 
 # external functions
 from functions import *
@@ -19,8 +30,15 @@ scren_number: dict = {}
 currently_loggedIn: str = ""
 
 
+# top header
 def decorations():
-    os.system("cls")
+    """This is a TOP Header"""
+    if platform.system() == "Windows":
+        os.system("cls")
+    elif platform.system() == "Linux":
+        os.system("clear")
+    elif platform.system() == "Darwin":
+        os.system("clear")
     print(
         Fore.CYAN
         + """
@@ -53,24 +71,27 @@ def home(
 [3] - Exit
 """
         )
-        userChoice: str = input(f">>> {Fore.YELLOW}")
-        if userChoice == 1:
-            pcAccessories(
-                cpu_number,
-                ram_number,
-                hdd_number,
-                mb_number,
-                psu_number,
-                case_number,
-                scren_number,
-            )
-        elif userChoice == 2:
-            showShoppingCart(currently_loggedIn)
-        elif userChoice == 3:
-            currently_loggedIn = ""
-            decorations()
-            print("Bye!")
-            exit(1)
+        try:
+            userChoice: int = int(input(f">>> {Fore.YELLOW}"))
+            if userChoice == 1:
+                pcAccessories(
+                    cpu_number,
+                    ram_number,
+                    hdd_number,
+                    mb_number,
+                    psu_number,
+                    case_number,
+                    scren_number,
+                )
+            elif userChoice == 2:
+                showShoppingCart(currently_loggedIn)
+            elif userChoice == 3:
+                currently_loggedIn = ""
+                decorations()
+                print("Bye!")
+                exit(1)
+        except ValueError:
+            continue
 
 
 def pcAccessories(
@@ -254,8 +275,6 @@ We have,
             )
 
 
-# for i in cartItems:
-#         res.append(i.replace("\n", ""))
 def showShoppingCart(currently_loggedIn: str):
     decorations()
     print(Fore.GREEN + "\nYour Cart")
@@ -270,7 +289,7 @@ def showShoppingCart(currently_loggedIn: str):
         cart.append(item_dict)
 
     total: float = 0
-    count: int = 0
+    count: int = 1
     # Display the cart items line by line
     for item in cart:
         item_name = list(item.keys())[0]
@@ -280,7 +299,7 @@ def showShoppingCart(currently_loggedIn: str):
         count += 1
     print("\n")
     print(f"Total Items: {Fore.YELLOW}{count}")
-    print(f"{Fore.GREEN}Total Payments: {Fore.YELLOW}{round(total, 2)}")
+    print(f"{Fore.GREEN}Total Payments: {Fore.YELLOW}{round(total, 2)}USD")
 
     # Allow the user to remove items
     print(Fore.GREEN + "\n[1] - Get a Excel Sheet\n[2] - Remove an Item\n[99] - Back\n")

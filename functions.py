@@ -1,23 +1,30 @@
-import json  # to manipulate json files
-import os  # to control the terminal window (if needed)
-import xlsxwriter  # to write into Excel spreadsheet
+import json
+import os
+import xlsxwriter
 import ast
-from colorama import Fore, init
 
-init(convert=True)
+try:
+    from colorama import Fore, init
+
+    init(convert=True)
+except NameError:
+    from colorama import Fore
 
 
 def login():
     while True:
-        name: str = input(Fore.YELLOW + "Enter Your Name: " + Fore.GREEN)
-        if name != "":
-            if not os.path.exists(f"./cart/{name}.txt"):
-                user = open(f"./cart/{name}.txt", "w")
-                user.close()
-                break
+        try:
+            name: str = input(Fore.YELLOW + "Enter Your Name: " + Fore.GREEN)
+            if name != "":
+                if not os.path.exists(f"./cart/{name}.txt"):
+                    user = open(f"./cart/{name}.txt", "w")
+                    user.close()
+                    break
+                else:
+                    break
             else:
-                break
-        else:
+                continue
+        except ValueError:
             continue
     return name
 
@@ -333,12 +340,13 @@ def writeToExcel(currently_loggedIn: str):
                 "{=COUNT(C" + str(lstRow - lstRow + 2) + ":C" + str(lstRow + 1) + ")}",
             )
 
-            worksheet.write(lstRow + 3, 0, "Total Payment")
+            worksheet.write(lstRow + 3, 0, "Total Payment (USD)")
             worksheet.write_formula(
                 lstRow + 3,
                 1,
                 "{=SUM(C" + str(lstRow - lstRow + 2) + ":C" + str(lstRow + 1) + ")}",
             )
+            print("Excel File created. Saved in your Desktop")
             workbook.close()
 
     except Exception as e:

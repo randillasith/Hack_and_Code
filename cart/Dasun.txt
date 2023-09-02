@@ -4,3 +4,6 @@
 {'MSI Z97-GAMING 5': 84.25}
 {'Asus ROG STRIX G': 248.84}
 {'Asus TUF Gaming GT301': 99.99}
+{'GeIL Evo Two 8 GB': 35.2}
+{'AMD Ryzen 7 3700X': 312.0}
+{'ASRock G31M-S R2.0': 53.24}
