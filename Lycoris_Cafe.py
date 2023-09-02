@@ -1,7 +1,9 @@
 # imports
 import ast
 import os
-from colorama import Fore
+from colorama import Fore, init
+
+init(convert=True)
 
 # external functions
 from functions import *
@@ -51,7 +53,7 @@ def home(
 [3] - Exit
 """
         )
-        userChoice: int = int(input(">>> " + Fore.YELLOW))
+        userChoice: str = input(f">>> {Fore.YELLOW}")
         if userChoice == 1:
             pcAccessories(
                 cpu_number,
