@@ -1,0 +1,6 @@
+{'Intel Core i3-10100': 105.0}
+{'GeIL Evo X II RGB SYNC 16 GB': 79.99}
+{'Gigabyte AORUS RGB': 79.98}
+{'MSI Z97-GAMING 5': 84.25}
+{'Asus ROG STRIX G': 248.84}
+{'Asus TUF Gaming GT301': 99.99}

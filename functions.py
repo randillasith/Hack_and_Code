@@ -1,6 +1,7 @@
 import json  # to manipulate json files
 import os  # to control the terminal window (if needed)
 import xlsxwriter  # to write into Excel spreadsheet
+import ast
 
 
 def login():
@@ -285,9 +286,55 @@ def getScrnData(index: int, scren_number: dict):
     return [data["brand"] + " " + data["model"], data["price"]["amount"]]
 
 
-def deleteItems():
-    pass
+def writeToExcel(currently_loggedIn: str):
+    try:
+        if os.path.exists(f"./cart/{currently_loggedIn}.txt"):
+            filename = f"{os.environ['USERPROFILE']}\\Desktop\{currently_loggedIn}.xlsx"
+            workbook = xlsxwriter.Workbook(filename)
+            worksheet = workbook.add_worksheet(f"{currently_loggedIn}'s Quatation")
+            headers: list = ["No.", "Product", "Price"]
+            worksheet.write_row(0, 0, headers)
 
+            filename = f"./cart/{currently_loggedIn}.txt"
+            file = open(filename, "r")
+            cartItems = file.readlines()
+            cart = []
+            for line in cartItems:
+                item_dict = ast.literal_eval(line)
+                cart.append(item_dict)
 
-def writeToExcel():
-    pass
+            # appending all the cart items into a list
+            items: list = []
+            for item in cart:
+                item_name = list(item.keys())[0]
+                item_price = item[item_name]
+                items.append([item_name, item_price])
+
+            row = 1
+            col = 0
+            lstRow: int = len(items)
+            # Iterate over the data and write it out row by row.
+            n: int = 1
+            for itemName, price in items:
+                worksheet.write(row, col, n)
+                worksheet.write(row, col + 1, itemName)
+                worksheet.write(row, col + 2, price)
+                row += 1
+                n += 1
+            worksheet.write(lstRow + 2, 0, "Total Items")
+            worksheet.write_formula(
+                lstRow + 2,
+                1,
+                "{=COUNT(C" + str(lstRow - lstRow + 2) + ":C" + str(lstRow + 1) + ")}",
+            )
+
+            worksheet.write(lstRow + 3, 0, "Total Payment")
+            worksheet.write_formula(
+                lstRow + 3,
+                1,
+                "{=SUM(C" + str(lstRow - lstRow + 2) + ":C" + str(lstRow + 1) + ")}",
+            )
+            workbook.close()
+
+    except Exception as e:
+        print("Error: ", e)

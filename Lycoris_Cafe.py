@@ -1,5 +1,7 @@
 # imports
 import ast
+import os
+
 
 # external functions
 from functions import *
@@ -240,25 +242,34 @@ def showShoppingCart(currently_loggedIn: str):
     for item in cart:
         item_name = list(item.keys())[0]
         item_price = item[item_name]
-        print(f"\t{item_name}: {item_price}USD")
+        print(f"\t{count}. {item_name}: {item_price}USD")
         total += float(item_price)
         count += 1
     print("\n")
     print(f"Total Items: {count}")
-    print(f"Total Payments: {total}")
+    print(f"Total Payments: {round(total, 2)}")
 
     # Allow the user to remove items
-    remove_item = input("Enter the item name to remove ('q' to quit): ")
-    found = False
-    if remove_item != "q":
+    print("[1] - Get a Excel Sheet\n[2] - Remove an Item\n[3] - Quit")
+    choice: str = input(">>> ")
+
+    if choice == "1":
+        writeToExcel(currently_loggedIn)
+
+    elif choice == "2":
+        remove_item = input("Enter the item name to remove: ")
+        found = False
         for item in cart:
             if remove_item in item:
                 cart.remove(item)
                 found = True
                 print(f"{remove_item} removed from the cart.")
                 break
-        if not found:
-            print("Item not found in the cart.")
+            if not found:
+                print("Item not found in the cart.")
+
+    elif choice == 3:
+        pass
     else:
         pass
 
