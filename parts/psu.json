@@ -1,19 +1,6 @@
 {
   "psu": [
     {
-      "brand": "Asus",
-      "model": "ROG STRIX G",
-      "form_factor": "ATX",
-      "efficiency_rating": "80+ Gold",
-      "wattage": 1000,
-      "modular": "Full",
-      "color": "Black",
-      "price": {
-        "currency": "USD",
-        "amount": 248.84
-      }
-    },
-    {
       "brand": "CoolMax",
       "model": "CXI-600B",
       "form_factor": "ATX",
@@ -37,6 +24,19 @@
       "price": {
         "currency": "USD",
         "amount": 69.99
+      }
+    },
+    {
+      "brand": "Asus",
+      "model": "ROG STRIX G",
+      "form_factor": "ATX",
+      "efficiency_rating": "80+ Gold",
+      "wattage": 1000,
+      "modular": "Full",
+      "color": "Black",
+      "price": {
+        "currency": "USD",
+        "amount": 248.84
       }
     }
   ]

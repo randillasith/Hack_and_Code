@@ -1,6 +1,20 @@
 {
   "case": [
     {
+      "brand": "Asus",
+      "model": "TUF Gaming GT301",
+      "form_factor": "ATX Mid Tower",
+      "color": "Black",
+      "psu_wattage": null,
+      "side_panel": null,
+      "external_bays": 0,
+      "internal_bays": 2,
+      "price": {
+        "currency": "USD",
+        "amount": 99.99
+      }
+    },
+    {
       "brand": "Aerocool",
       "model": "Aero One Eclipse",
       "form_factor": "ATX Mid Tower",
@@ -16,34 +30,6 @@
     },
     {
       "brand": "Asus",
-      "model": "ROG Strix Helios",
-      "form_factor": "ATX Full Tower",
-      "color": "Black",
-      "psu_wattage": null,
-      "side_panel": null,
-      "external_bays": 0,
-      "internal_bays": 2,
-      "price": {
-        "currency": "USD",
-        "amount": 289.99
-      }
-    },
-    {
-      "brand": "Asus",
-      "model": "TUF Gaming GT301",
-      "form_factor": "ATX Mid Tower",
-      "color": "Black",
-      "psu_wattage": null,
-      "side_panel": null,
-      "external_bays": 0,
-      "internal_bays": 2,
-      "price": {
-        "currency": "USD",
-        "amount": 99.99
-      }
-    },
-    {
-      "brand": "Asus",
       "model": "VENTO 3600 RED",
       "form_factor": "ATX Mid Tower",
       "color": "Red",
@@ -54,6 +40,20 @@
       "price": {
         "currency": "USD",
         "amount": 149.99
+      }
+    },
+    {
+      "brand": "Asus",
+      "model": "ROG Strix Helios",
+      "form_factor": "ATX Full Tower",
+      "color": "Black",
+      "psu_wattage": null,
+      "side_panel": null,
+      "external_bays": 0,
+      "internal_bays": 2,
+      "price": {
+        "currency": "USD",
+        "amount": 289.99
       }
     },
     {
