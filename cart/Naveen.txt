@@ -1,0 +1,3 @@
+{'Intel Core i5-10600K': 260.99}
+{'Intel Core i7-10700': 324.87}
+{'Intel Core i7-10700': 324.87}

@@ -2,11 +2,12 @@ import json  # to manipulate json files
 import os  # to control the terminal window (if needed)
 import xlsxwriter  # to write into Excel spreadsheet
 import ast
+from colorama import Fore, Back, Style
 
 
 def login():
     while True:
-        name: str = input("Enter Your Name: ")
+        name: str = input(Fore.YELLOW + "Enter Your Name: " + Fore.GREEN)
         if name != "":
             if not os.path.exists(f"./cart/{name}.txt"):
                 user = open(f"./cart/{name}.txt", "w")
@@ -42,10 +43,10 @@ def getAllData(path: str):
 
 def cpuList(cpu_number: dict):
     cpuData = getAllData("./parts/cpu.json")
-    cpu_list = cpuData["cpu"][-10:]
+    cpu_list = cpuData["cpu"]
     n: int = 1
     for cpu in cpu_list:
-        print(f"\t{n}. {cpu['brand']} {cpu['model']}")
+        print(f"\t[{n}]. {cpu['brand']} {cpu['model']}")
         cpu_number[n] = cpu["model"]
         n += 1
 
@@ -53,7 +54,7 @@ def cpuList(cpu_number: dict):
 def getCpuData(index: int, cpu_number: dict):
     cpu_name = cpu_number.get(index)
     cpuData = getAllData("./parts/cpu.json")
-    cpu_list = cpuData["cpu"][-10:]
+    cpu_list = cpuData["cpu"]
     data = cpu_list[index - 1]
     try:
         if data["boost_clock"]["cycles"] != None:
@@ -70,23 +71,23 @@ def getCpuData(index: int, cpu_number: dict):
     print(
         f"""
     Details of {cpu_name}
-          Brand - {data['brand']}
-          Model - {data['model']}
-          Base Clock - {round((data['base_clock']['cycles']) / 1000 ** 3, 2)}GHz
-          Boost Clock - {boostClock}
-          Integrated Graphics - {data['integrated_graphics']}
-          TDP - {data['tdp']}W
-          Price - {data['price']['amount']}{data['price']['currency']}"""
+        Brand - {data['brand']}
+        Model - {data['model']}
+        Base Clock - {round((data['base_clock']['cycles']) / 1000 ** 3, 2)}GHz
+        Boost Clock - {boostClock}
+        Integrated Graphics - {data['integrated_graphics']}
+        TDP - {data['tdp']}W
+        Price - {data['price']['amount']}{data['price']['currency']}"""
     )
     return [data["brand"] + " " + data["model"], data["price"]["amount"]]
 
 
 def ramList(ram_number: dict):
     ramData = getAllData("./parts/ram.json")
-    ram_list = ramData["memory"][-10:]
+    ram_list = ramData["memory"]
     n: int = 1
     for ram in ram_list:
-        print(f"\t{n}. {ram['brand']} {ram['model']}")
+        print(f"\t[{n}]. {ram['brand']} {ram['model']}")
         ram_number[n] = ram["model"]
         n += 1
 
@@ -94,7 +95,7 @@ def ramList(ram_number: dict):
 def getRamData(index: int, ram_number: dict):
     ram_name = ram_number.get(index)
     ramData = getAllData("./parts/ram.json")
-    ram_list = ramData["memory"][-10:]
+    ram_list = ramData["memory"]
     data = ram_list[index - 1]
     try:
         if data["speed"]["cycles"] != None:
@@ -121,10 +122,10 @@ def getRamData(index: int, ram_number: dict):
 
 def hddList(hdd_number: dict):
     hddData = getAllData("./parts/hdd.json")
-    hdd_list = hddData["hdd"][-10:]
+    hdd_list = hddData["hdd"]
     n: int = 1
     for hdd in hdd_list:
-        print(f"\t{n}. {hdd['brand']} {hdd['model']}")
+        print(f"\t[{n}]. {hdd['brand']} {hdd['model']}")
         hdd_number[n] = hdd["brand"] + " " + hdd["model"]
         n += 1
 
@@ -132,7 +133,7 @@ def hddList(hdd_number: dict):
 def getHddData(index: int, hdd_number: dict):
     hdd_name = hdd_number.get(index)
     hddData = getAllData("./parts/hdd.json")
-    hdd_list = hddData["hdd"][-10:]
+    hdd_list = hddData["hdd"]
     data = hdd_list[index - 1]
     try:
         if data["capacity"] != None:
@@ -159,10 +160,10 @@ def getHddData(index: int, hdd_number: dict):
 
 def mbList(mb_number: dict):
     mbData = getAllData("./parts/motherboards.json")
-    mb_list = mbData["motherboard"][-10:]
+    mb_list = mbData["motherboard"]
     n: int = 1
     for mb in mb_list:
-        print(f"\t{n}. {mb['brand']} {mb['model']}")
+        print(f"\t[{n}]. {mb['brand']} {mb['model']}")
         mb_number[n] = mb["brand"] + " " + mb["model"]
         n += 1
 
@@ -170,7 +171,7 @@ def mbList(mb_number: dict):
 def getMbData(index: int, mb_number: dict):
     mb_name = mb_number.get(index)
     mbData = getAllData("./parts/motherboards.json")
-    mb_list = mbData["motherboard"][-10:]
+    mb_list = mbData["motherboard"]
     data = mb_list[index - 1]
     try:
         if data["max_ram"] != None:
@@ -197,10 +198,10 @@ def getMbData(index: int, mb_number: dict):
 
 def psuList(psu_number: dict):
     psuData = getAllData("./parts/psu.json")
-    psu_list = psuData["psu"][-10:]
+    psu_list = psuData["psu"]
     n: int = 1
     for psu in psu_list:
-        print(f"\t{n}. {psu['brand']} {psu['model']}")
+        print(f"\t[{n}]. {psu['brand']} {psu['model']}")
         psu_number[n] = psu["brand"] + " " + psu["model"]
         n += 1
 
@@ -208,7 +209,7 @@ def psuList(psu_number: dict):
 def getPsuData(index: int, psu_number: dict):
     psu_name = psu_number.get(index)
     psuData = getAllData("./parts/psu.json")
-    psu_list = psuData["psu"][-10:]
+    psu_list = psuData["psu"]
     data = psu_list[index - 1]
 
     print(
@@ -228,10 +229,10 @@ def getPsuData(index: int, psu_number: dict):
 
 def casingList(case_number: dict):
     caseData = getAllData("./parts/casing.json")
-    case_list = caseData["case"][-10:]
+    case_list = caseData["case"]
     n: int = 1
     for psu in case_list:
-        print(f"\t{n}. {psu['brand']} {psu['model']}")
+        print(f"\t[{n}]. {psu['brand']} {psu['model']}")
         case_number[n] = psu["brand"] + " " + psu["model"]
         n += 1
 
@@ -239,7 +240,7 @@ def casingList(case_number: dict):
 def getCasingData(index: int, case_number: dict):
     psu_name = case_number.get(index)
     caseData = getAllData("./parts/casing.json")
-    case_list = caseData["case"][-10:]
+    case_list = caseData["case"]
     data = case_list[index - 1]
 
     print(
@@ -258,10 +259,10 @@ def getCasingData(index: int, case_number: dict):
 
 def scrnList(scren_number: dict):
     scrnData = getAllData("./parts/monitor.json")
-    scrn_list = scrnData["Monitor"][-10:]
+    scrn_list = scrnData["Monitor"]
     n: int = 1
     for psu in scrn_list:
-        print(f"\t{n}. {psu['brand']} {psu['model']}")
+        print(f"\t[{n}]. {psu['brand']} {psu['model']}")
         scren_number[n] = psu["brand"] + " " + psu["model"]
         n += 1
 
@@ -269,7 +270,7 @@ def scrnList(scren_number: dict):
 def getScrnData(index: int, scren_number: dict):
     scrn_name = scren_number.get(index)
     scrnData = getAllData("./parts/monitor.json")
-    scrn_list = scrnData["Monitor"][-10:]
+    scrn_list = scrnData["Monitor"]
     data = scrn_list[index - 1]
 
     print(

@@ -1,7 +1,7 @@
 # imports
 import ast
 import os
-
+from colorama import Fore
 
 # external functions
 from functions import *
@@ -17,6 +17,20 @@ scren_number: dict = {}
 currently_loggedIn: str = ""
 
 
+def decorations():
+    os.system("cls")
+    print(
+        Fore.CYAN
+        + """
+            ================================
+            =  Welcome to Lycoris PC Mart  =
+            ================================
+          """
+    )
+    if not currently_loggedIn == "":
+        print("\n" + Fore.YELLOW + f"Hello {currently_loggedIn}!")
+
+
 def home(
     cpu_number: dict,
     ram_number: dict,
@@ -28,11 +42,16 @@ def home(
 ):
     global currently_loggedIn
     while True:
-        userChoice: int = int(
-            input(
-                "\n[1] - PC Accessories\n[2] - Cart\n[3] - Exit\n What do you want? >>> "
-            )
+        decorations()
+        print(
+            Fore.GREEN
+            + """
+[1] - PC Accessories
+[2] - Cart
+[3] - Exit
+"""
         )
+        userChoice: int = int(input(">>> " + Fore.YELLOW))
         if userChoice == 1:
             pcAccessories(
                 cpu_number,
@@ -60,34 +79,39 @@ def pcAccessories(
 ):
     global currently_loggedIn
     while True:
+        decorations()
         print(
-            """We have,
-            1 - CPU
-            2 - RAM
-            3 - HDD/SSD
-            4 - Motherboard
-            5 - Power Supply Unit
-            6 - Casing
-            7 - Monitor
-            8 - Go Back"""
+            Fore.GREEN
+            + """
+We have,
+  [1] - CPU
+  [2] - RAM
+  [3] - HDD/SSD
+  [4] - Motherboard
+  [5] - Power Supply Unit
+  [6] - Casing
+  [7] - Monitor
+  [99] - Go Back
+                """
         )
 
-        user: int = int(input("What do you want? >>> "))
+        user: int = int(input(">>> " + Fore.YELLOW))
 
         if user == 1:
             while True:
-                print("We have, \n")
+                decorations()
+                print(Fore.GREEN + "\nWe have,")
                 cpuList(cpu_number)
-                print("\n [n] - More Details\n [99] - Back")
-                choice: int = int(input(">>> "))
+                print("\n(For more info., input item number)\n[99] - Back")
+                choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(cpu_number):
+                    decorations()
                     items = getCpuData(choice, cpu_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    choice2: int = int(input(">>> " + Fore.YELLOW))
+                    if choice2 == 2:
                         break
-                    elif choice2 == 2:
+                    elif choice2 == 1:
                         addItemsToCart(items[0], items[1], currently_loggedIn)
                     else:
                         pass
@@ -95,18 +119,19 @@ def pcAccessories(
                     break
         elif user == 2:
             while True:
-                print("We have, \n")
+                decorations()
+                print(Fore.GREEN + "\nWe have,")
                 ramList(ram_number)
-                print("\n [n] - More Details\n [99] - Back")
-                choice: int = int(input(">>> "))
+                print("\n(For more info., input item number)\n[99] - Back")
+                choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(ram_number):
+                    decorations()
                     items = getRamData(choice, ram_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
+                    print(Fore.GREEN + "\n[1] - Add to cart \n[2] - Back")
+                    choice2: int = int(input(">>> " + Fore.YELLOW))
+                    if choice2 == 2:
                         break
-                    elif choice2 == 2:
+                    elif choice2 == 1:
                         addItemsToCart(items[0], items[1], currently_loggedIn)
                     else:
                         pass
@@ -114,18 +139,19 @@ def pcAccessories(
                     break
         elif user == 3:
             while True:
-                print("We have, \n")
+                decorations()
+                print(Fore.GREEN + "\nWe have,")
                 hddList(hdd_number)
-                print("\n [n] - More Details\n [99] - Back")
-                choice: int = int(input(">>> "))
+                print("\n(For more info., input item number)\n[99] - Back")
+                choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(hdd_number):
+                    decorations()
                     items = getHddData(choice, hdd_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    choice2: int = int(input(">>> " + Fore.YELLOW))
+                    if choice2 == 2:
                         break
-                    elif choice2 == 2:
+                    elif choice2 == 1:
                         addItemsToCart(items[0], items[1], currently_loggedIn)
                     else:
                         pass
@@ -133,18 +159,19 @@ def pcAccessories(
                     break
         elif user == 4:
             while True:
-                print("We have, \n")
+                decorations()
+                print(Fore.GREEN + "\nWe have,")
                 mbList(mb_number)
-                print("\n [n] - More Details\n [99] - Back")
-                choice: int = int(input(">>> "))
+                print("\n(For more info., input item number)\n[99] - Back")
+                choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(mb_number):
+                    decorations()
                     items = getMbData(choice, mb_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    choice2: int = int(input(">>> " + Fore.YELLOW))
+                    if choice2 == 2:
                         break
-                    elif choice2 == 2:
+                    elif choice2 == 1:
                         addItemsToCart(items[0], items[1], currently_loggedIn)
                     else:
                         pass
@@ -152,18 +179,19 @@ def pcAccessories(
                     break
         elif user == 5:
             while True:
-                print("We have, \n")
+                decorations()
+                print(Fore.GREEN + "\nWe have,")
                 psuList(psu_number)
-                print("\n [n] - More Details\n [99] - Back")
-                choice: int = int(input(">>> "))
+                print("\n(For more info., input item number)\n[99] - Back")
+                choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(psu_number):
+                    decorations()
                     items = getPsuData(choice, psu_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    choice2: int = int(input(">>> " + Fore.YELLOW))
+                    if choice2 == 2:
                         break
-                    elif choice2 == 2:
+                    elif choice2 == 1:
                         addItemsToCart(items[0], items[1], currently_loggedIn)
                     else:
                         pass
@@ -171,18 +199,19 @@ def pcAccessories(
                     break
         elif user == 6:
             while True:
-                print("We have, \n")
+                decorations()
+                print(Fore.GREEN + "\nWe have,")
                 casingList(case_number)
-                print("\n [n] - More Details\n [99] - Back")
-                choice: int = int(input(">>> "))
+                print("\n(For more info., input item number)\n[99] - Back")
+                choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(case_number):
+                    decorations()
                     items = getCasingData(choice, case_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    choice2: int = int(input(">>> " + Fore.YELLOW))
+                    if choice2 == 2:
                         break
-                    elif choice2 == 2:
+                    elif choice2 == 1:
                         addItemsToCart(items[0], items[1], currently_loggedIn)
                     else:
                         pass
@@ -190,42 +219,41 @@ def pcAccessories(
                     break
         elif user == 7:
             while True:
-                print("We have, \n")
+                decorations()
+                print(Fore.GREEN + "\nWe have,")
                 scrnList(scren_number)
-                print("\n [n] - More Details\n [99] - Back")
-                choice: int = int(input(">>> "))
+                print("\n(For more info., input item number)\n[99] - Back")
+                choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(scren_number):
+                    decorations()
                     items = getScrnData(choice, scren_number)
-                    choice2: int = int(
-                        input("\n [1] - Back \n [2] - Add to cart\n>>> ")
-                    )
-                    if choice2 == 1:
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    choice2: int = int(input(">>> " + Fore.YELLOW))
+                    if choice2 == 2:
                         break
-                    elif choice2 == 2:
+                    elif choice2 == 1:
                         addItemsToCart(items[0], items[1], currently_loggedIn)
                     else:
                         pass
                 elif choice == 99:
                     break
-        elif user == 8:
-            if currently_loggedIn == "":
-                home(
-                    cpu_number,
-                    ram_number,
-                    hdd_number,
-                    mb_number,
-                    psu_number,
-                    case_number,
-                    scren_number,
-                )
-            else:
-                exit(1)
+        elif user == 99:
+            home(
+                cpu_number,
+                ram_number,
+                hdd_number,
+                mb_number,
+                psu_number,
+                case_number,
+                scren_number,
+            )
 
 
 # for i in cartItems:
 #         res.append(i.replace("\n", ""))
 def showShoppingCart(currently_loggedIn: str):
-    print("\n Your Cart")
+    decorations()
+    print(Fore.GREEN + "\nYour Cart")
     filename = f"./cart/{currently_loggedIn}.txt"
     file = open(filename, "r")
     cartItems = file.readlines()
@@ -246,12 +274,12 @@ def showShoppingCart(currently_loggedIn: str):
         total += float(item_price)
         count += 1
     print("\n")
-    print(f"Total Items: {count}")
-    print(f"Total Payments: {round(total, 2)}")
+    print(f"Total Items: {Fore.YELLOW}{count}")
+    print(f"{Fore.GREEN}Total Payments: {Fore.YELLOW}{round(total, 2)}")
 
     # Allow the user to remove items
-    print("[1] - Get a Excel Sheet\n[2] - Remove an Item\n[3] - Quit")
-    choice: str = input(">>> ")
+    print(Fore.GREEN + "\n[1] - Get a Excel Sheet\n[2] - Remove an Item\n[99] - Back\n")
+    choice: str = input(">>> " + Fore.YELLOW)
 
     if choice == "1":
         writeToExcel(currently_loggedIn)
@@ -263,12 +291,12 @@ def showShoppingCart(currently_loggedIn: str):
             if remove_item in item:
                 cart.remove(item)
                 found = True
-                print(f"{remove_item} removed from the cart.")
+                print(f"{Fore.YELLOW}{remove_item} removed from the cart.")
                 break
             if not found:
-                print("Item not found in the cart.")
+                print(Fore.RED + "Item not found in the cart.")
 
-    elif choice == 3:
+    elif choice == 99:
         pass
     else:
         pass
@@ -279,14 +307,11 @@ def showShoppingCart(currently_loggedIn: str):
             file.write(str(item) + "\n")
 
 
-print("\n Welcome to Lycoris PC Mart")
-
-
 if __name__ == "__main__":
     if currently_loggedIn == "":
+        decorations()
         u = login()
         currently_loggedIn = u
-        print(f"Hello {currently_loggedIn}!")
         home(
             cpu_number,
             ram_number,
