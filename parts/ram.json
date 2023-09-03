@@ -2,34 +2,6 @@
   "memory": [
     {
       "brand": "GeIL",
-      "model": "EVO SPEAR Phantom Gaming 16 GB",
-      "module_type": "DDR4",
-      "speed": {
-        "cycles": 3000000000
-      },
-      "number_of_modules": 2,
-      "module_size": 8000000000,
-      "price": {
-        "currency": "USD",
-        "amount": 57.61
-      }
-    },
-    {
-      "brand": "GeIL",
-      "model": "EVO SPEAR Phantom Gaming 32 GB",
-      "module_type": "DDR4",
-      "speed": {
-        "cycles": 3200000000
-      },
-      "number_of_modules": 2,
-      "module_size": 16000000000,
-      "price": {
-        "currency": "USD",
-        "amount": 84.25
-      }
-    },
-    {
-      "brand": "GeIL",
       "model": "EVO VELOCE 2 GB",
       "module_type": "DDR3",
       "speed": {
@@ -40,6 +12,34 @@
       "price": {
         "currency": "USD",
         "amount": 15.25
+      }
+    },
+    {
+      "brand": "GeIL",
+      "model": "Evo Two 8 GB",
+      "module_type": "DDR3",
+      "speed": {
+        "cycles": 1866000000
+      },
+      "number_of_modules": 2,
+      "module_size": 4000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 35.2
+      }
+    },
+    {
+      "brand": "GeIL",
+      "model": "EVO SPEAR Phantom Gaming 16 GB",
+      "module_type": "DDR4",
+      "speed": {
+        "cycles": 3000000000
+      },
+      "number_of_modules": 2,
+      "module_size": 8000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 57.61
       }
     },
     {
@@ -56,18 +56,18 @@
         "amount": 79.99
       }
     },
-    {
+  {
       "brand": "GeIL",
-      "model": "Evo Two 8 GB",
-      "module_type": "DDR3",
+      "model": "EVO SPEAR Phantom Gaming 32 GB",
+      "module_type": "DDR4",
       "speed": {
-        "cycles": 1866000000
+        "cycles": 3200000000
       },
       "number_of_modules": 2,
-      "module_size": 4000000000,
+      "module_size": 16000000000,
       "price": {
         "currency": "USD",
-        "amount": 35.2
+        "amount": 84.25
       }
     }
   ]

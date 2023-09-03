@@ -1,6 +1,6 @@
 import json  # to manipulate json files
 import os  # to control the terminal window (if needed)
-import xlsxwriter  # to write into Excel spreadsheet
+# import xlsxwriter  # to write into Excel spreadsheet
 import ast
 from colorama import Fore, Back, Style
 
