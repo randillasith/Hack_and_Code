@@ -1,0 +1,43 @@
+{
+  "psu": [
+    {
+      "brand": "Asus",
+      "model": "ROG STRIX G",
+      "form_factor": "ATX",
+      "efficiency_rating": "80+ Gold",
+      "wattage": 1000,
+      "modular": "Full",
+      "color": "Black",
+      "price": {
+        "currency": "USD",
+        "amount": 248.84
+      }
+    },
+    {
+      "brand": "CoolMax",
+      "model": "CXI-600B",
+      "form_factor": "ATX",
+      "efficiency_rating": null,
+      "wattage": 600,
+      "modular": null,
+      "color": null,
+      "price": {
+        "currency": "USD",
+        "amount": 22.67
+      }
+    },
+    {
+      "brand": "Rosewill",
+      "model": "Glacier 600M",
+      "form_factor": "ATX",
+      "efficiency_rating": "80+ Bronze",
+      "wattage": 600,
+      "modular": "Semi",
+      "color": null,
+      "price": {
+        "currency": "USD",
+        "amount": 69.99
+      }
+    }
+  ]
+}

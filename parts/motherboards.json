@@ -1,0 +1,64 @@
+{
+  "motherboard": [
+    {
+      "brand": "ASRock",
+      "model": "G31M-S R2.0",
+      "soket": "LGA775",
+      "form_factor": "Micro ATX",
+      "ram_slots": 2,
+      "max_ram": 8000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 53.24
+      }
+    },
+    {
+      "brand": "ASRock",
+      "model": "H110M-DGS",
+      "soket": "LGA1151",
+      "form_factor": "Micro ATX",
+      "ram_slots": 2,
+      "max_ram": 32000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 68.51
+      }
+    },
+    {
+      "brand": "MSI",
+      "model": "Z97-GAMING 5",
+      "soket": "LGA1150",
+      "form_factor": "ATX",
+      "ram_slots": 4,
+      "max_ram": 32000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 84.25
+      }
+    },
+    {
+      "brand": "Asus",
+      "model": "A55BM-K",
+      "soket": "FM2+",
+      "form_factor": "Micro ATX",
+      "ram_slots": 2,
+      "max_ram": 32000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 67.24
+      }
+    },
+    {
+      "brand": "Foxconn",
+      "model": "A55MX",
+      "soket": "FM1",
+      "form_factor": "Micro ATX",
+      "ram_slots": 2,
+      "max_ram": 32000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 61.47
+      }
+    }
+  ]
+}

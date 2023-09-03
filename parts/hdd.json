@@ -1,0 +1,95 @@
+{
+  "hdd": [
+    {
+      "brand": "ADATA",
+      "model": "Premier",
+      "storage_type": "SSD",
+      "platter_rpm": null,
+      "interface": "SATA 6 Gb/s",
+      "form_factor": "2.5\"",
+      "capacity": 960000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 398.58
+      }
+    },
+    {
+      "brand": "Axiom",
+      "model": "0A89470-AX",
+      "storage_type": "HDD",
+      "interface": "SATA 6 Gb/s",
+      "platter_rpm": 7200,
+      "form_factor": "3.5\"",
+      "capacity": 500000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 145.58
+      }
+    },
+    {
+      "brand": "Gigabyte",
+      "model": "AORUS NVMe Gen4",
+      "storage_type": "SSD",
+      "platter_rpm": null,
+      "interface": "M.2 (M)",
+      "form_factor": "M.2-2280",
+      "capacity": 2000000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 379.99
+      }
+    },
+    {
+      "brand": "Gigabyte",
+      "model": "AORUS RGB",
+      "storage_type": "SSD",
+      "platter_rpm": null,
+      "interface": "M.2 (M)",
+      "form_factor": "M.2-2280",
+      "capacity": 256000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 79.98
+      }
+    },
+    {
+      "brand": "Seagate",
+      "model": "Momentu",
+      "storage_type": "HDD",
+      "interface": "SATA 3 Gb/s",
+      "platter_rpm": 7200,
+      "form_factor": "2.5\"",
+      "capacity": 500000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 37.99
+      }
+    },
+    {
+      "brand": "Seagate",
+      "model": "1200 SSD",
+      "storage_type": "SSD",
+      "platter_rpm": null,
+      "interface": "SAS 12 Gb/s",
+      "form_factor": "2.5\"",
+      "capacity": 800000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 389.0
+      }
+    },
+    {
+      "brand": "Toshiba",
+      "model": "XG5",
+      "storage_type": "SSD",
+      "platter_rpm": null,
+      "interface": "SATA 3 Gb/s",
+      "form_factor": "M.2 (M)",
+      "capacity": 512000000000,
+      "price": {
+        "currency": "USD",
+        "amount": 129.64
+      }
+    }
+  ]
+}

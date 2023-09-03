@@ -1,0 +1,80 @@
+{
+    "Monitor": [
+      {
+        "brand": "AOC",
+        "model": "2036Sa",
+        "size": 20.0,
+        "resolution": {
+          "width": 1600,
+          "height": 900
+        },
+        "refresh_rate": null,
+        "aspect_ratio": "16:9",
+        "price": {
+          "currency": "USD",
+          "amount": 104.94
+        }
+      },
+      {
+        "brand": "Dell",
+        "model": "E2316Hr",
+        "size": 23.0,
+        "resolution": {
+          "width": 1920,
+          "height": 1080
+        },
+        "refresh_rate": 60.0,
+        "aspect_ratio": "16:9",
+        "price": {
+          "currency": "USD",
+          "amount": 341.77
+        }
+      },
+      {
+        "brand": "Samsung",
+        "model": "G7 LC32T550FDNXZA",
+        "size": 31.5,
+        "resolution": {
+          "width": 1920,
+          "height": 1080
+        },
+        "refresh_rate": 75,
+        "aspect_ratio": "16:9",
+        "price": {
+          "currency": "USD",
+          "amount": 219.99
+        }
+      },
+      {
+        "brand": "Samsung",
+        "model": "LC24FG70FQNXZA",
+        "size": 24.0,
+        "resolution": {
+          "width": 1920,
+          "height": 1080
+        },
+        "refresh_rate": 144,
+        "aspect_ratio": "16:9",
+        "price": {
+          "currency": "USD",
+          "amount": 492.44
+        }
+      },
+      {
+        "brand": "Philips",
+        "model": "272P4QPJKEB/27",
+        "size": 27.0,
+        "resolution": {
+          "width": 2560,
+          "height": 1440
+        },
+        "refresh_rate": 60,
+        "aspect_ratio": "16:9",
+        "price": {
+          "currency": "USD",
+          "amount": 947.99
+        }
+      }
+    ]
+  }
+  
