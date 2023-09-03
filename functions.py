@@ -290,7 +290,7 @@ def getScrnData(index: int, scren_number: dict):
 def writeToExcel(currently_loggedIn: str):
     try:
         if os.path.exists(f"./cart/{currently_loggedIn}.txt"):
-            filename = f"{os.environ['USERPROFILE']}\\Desktop\{currently_loggedIn}.xlsx"
+            filename = f"{os.environ['USERPROFILE']}\\Desktop\\{currently_loggedIn}.xlsx"
             workbook = xlsxwriter.Workbook(filename)
             worksheet = workbook.add_worksheet(f"{currently_loggedIn}'s Quatation")
             headers: list = ["No.", "Product", "Price"]
