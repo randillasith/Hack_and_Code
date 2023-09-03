@@ -2,7 +2,6 @@ import json  # to manipulate json files
 import os  # to control the terminal window (if needed)
 import xlsxwriter  # to write into Excel spreadsheet
 import ast
-import colorama
 from colorama import Fore
 
 
