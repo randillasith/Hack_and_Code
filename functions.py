@@ -1,8 +1,9 @@
 import json  # to manipulate json files
 import os  # to control the terminal window (if needed)
-# import xlsxwriter  # to write into Excel spreadsheet
+import xlsxwriter  # to write into Excel spreadsheet
 import ast
-from colorama import Fore, Back, Style
+import colorama
+from colorama import Fore
 
 
 def login():
@@ -69,7 +70,7 @@ def getCpuData(index: int, cpu_number: dict):
         else:
             boostClock = None
     print(
-        f"""
+        f"""{Fore.LIGHTMAGENTA_EX}
     Details of {cpu_name}
         Brand - {data['brand']}
         Model - {data['model']}
@@ -107,7 +108,7 @@ def getRamData(index: int, ram_number: dict):
         print(e)
 
     print(
-        f"""
+        f"""{Fore.LIGHTMAGENTA_EX}
     Details of {ram_name}
           Brand - {data['brand']}
           Model - {data['model']}
@@ -145,7 +146,7 @@ def getHddData(index: int, hdd_number: dict):
         print(e)
 
     print(
-        f"""
+        f"""{Fore.LIGHTMAGENTA_EX}
     Details of {hdd_name}
           Brand - {data['brand']}
           Model - {data['model']}
@@ -183,7 +184,7 @@ def getMbData(index: int, mb_number: dict):
         print(e)
 
     print(
-        f"""
+        f"""{Fore.LIGHTMAGENTA_EX}
     Details of {mb_name}
           Brand - {data['brand']}
           Model - {data['model']}
@@ -213,7 +214,7 @@ def getPsuData(index: int, psu_number: dict):
     data = psu_list[index - 1]
 
     print(
-        f"""
+        f"""{Fore.LIGHTMAGENTA_EX}
     Details of {psu_name}
           Brand - {data['brand']}
           Model - {data['model']}
@@ -244,7 +245,7 @@ def getCasingData(index: int, case_number: dict):
     data = case_list[index - 1]
 
     print(
-        f"""
+        f"""{Fore.LIGHTMAGENTA_EX}
     Details of {psu_name}
           Brand - {data['brand']}
           Model - {data['model']}
@@ -274,7 +275,7 @@ def getScrnData(index: int, scren_number: dict):
     data = scrn_list[index - 1]
 
     print(
-        f"""
+        f"""{Fore.LIGHTMAGENTA_EX}
     Details of {scrn_name}
           Brand - {data['brand']}
           Model - {data['model']}

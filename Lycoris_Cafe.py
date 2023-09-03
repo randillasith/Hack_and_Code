@@ -65,6 +65,9 @@ def home(
         elif userChoice == 2:
             showShoppingCart(currently_loggedIn)
         elif userChoice == 3:
+            currently_loggedIn = ""
+            decorations()
+            print("Bye!")
             exit(1)
 
 
@@ -102,12 +105,12 @@ We have,
                 decorations()
                 print(Fore.GREEN + "\nWe have,")
                 cpuList(cpu_number)
-                print("\n(For more info., input item number)\n[99] - Back")
+                print("\n(For more info., input item number)\n[99] - Back\n")
                 choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(cpu_number):
                     decorations()
                     items = getCpuData(choice, cpu_number)
-                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back\n")
                     choice2: int = int(input(">>> " + Fore.YELLOW))
                     if choice2 == 2:
                         break
@@ -122,12 +125,12 @@ We have,
                 decorations()
                 print(Fore.GREEN + "\nWe have,")
                 ramList(ram_number)
-                print("\n(For more info., input item number)\n[99] - Back")
+                print("\n(For more info., input item number)\n[99] - Back\n")
                 choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(ram_number):
                     decorations()
                     items = getRamData(choice, ram_number)
-                    print(Fore.GREEN + "\n[1] - Add to cart \n[2] - Back")
+                    print(Fore.GREEN + "\n[1] - Add to cart \n[2] - Back\n")
                     choice2: int = int(input(">>> " + Fore.YELLOW))
                     if choice2 == 2:
                         break
@@ -142,12 +145,12 @@ We have,
                 decorations()
                 print(Fore.GREEN + "\nWe have,")
                 hddList(hdd_number)
-                print("\n(For more info., input item number)\n[99] - Back")
+                print("\n(For more info., input item number)\n[99] - Back\n")
                 choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(hdd_number):
                     decorations()
                     items = getHddData(choice, hdd_number)
-                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back\n")
                     choice2: int = int(input(">>> " + Fore.YELLOW))
                     if choice2 == 2:
                         break
@@ -162,12 +165,12 @@ We have,
                 decorations()
                 print(Fore.GREEN + "\nWe have,")
                 mbList(mb_number)
-                print("\n(For more info., input item number)\n[99] - Back")
+                print("\n(For more info., input item number)\n[99] - Back\n")
                 choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(mb_number):
                     decorations()
                     items = getMbData(choice, mb_number)
-                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back\n")
                     choice2: int = int(input(">>> " + Fore.YELLOW))
                     if choice2 == 2:
                         break
@@ -182,12 +185,12 @@ We have,
                 decorations()
                 print(Fore.GREEN + "\nWe have,")
                 psuList(psu_number)
-                print("\n(For more info., input item number)\n[99] - Back")
+                print("\n(For more info., input item number)\n[99] - Back\n")
                 choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(psu_number):
                     decorations()
                     items = getPsuData(choice, psu_number)
-                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back\n")
                     choice2: int = int(input(">>> " + Fore.YELLOW))
                     if choice2 == 2:
                         break
@@ -202,12 +205,12 @@ We have,
                 decorations()
                 print(Fore.GREEN + "\nWe have,")
                 casingList(case_number)
-                print("\n(For more info., input item number)\n[99] - Back")
+                print("\n(For more info., input item number)\n[99] - Back\n")
                 choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(case_number):
                     decorations()
                     items = getCasingData(choice, case_number)
-                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back\n")
                     choice2: int = int(input(">>> " + Fore.YELLOW))
                     if choice2 == 2:
                         break
@@ -222,12 +225,12 @@ We have,
                 decorations()
                 print(Fore.GREEN + "\nWe have,")
                 scrnList(scren_number)
-                print("\n(For more info., input item number)\n[99] - Back")
+                print("\n(For more info., input item number)\n[99] - Back\n")
                 choice: int = int(input(">>> " + Fore.YELLOW))
                 if choice <= len(scren_number):
                     decorations()
                     items = getScrnData(choice, scren_number)
-                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back")
+                    print(Fore.GREEN + "\n[1] - Add to cart\n[2] - Back\n")
                     choice2: int = int(input(">>> " + Fore.YELLOW))
                     if choice2 == 2:
                         break
