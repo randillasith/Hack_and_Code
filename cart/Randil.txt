@@ -1,3 +1,5 @@
 {'AMD Ryzen 3 3100 (12nm)': 215.49}
 {'Rosewill Glacier 600M': 69.99}
 {'GeIL Evo Two 8 GB': 35.2}
+{'Intel Core i9-10850K': 397.99}
+{'Intel Celeron 430': 75.62}
